@@ -16,7 +16,7 @@ const readJsonFile = async () => {
     });
     const rawData = fs.readFileSync(args.f);
     const { trackedEntityInstances } = JSON.parse(rawData);
-    const allChunks = chunk(trackedEntityInstances, 50);
+    const allChunks = chunk(trackedEntityInstances, +args.c);
     let index = 0;
     for (const c of allChunks) {
         console.log(`Working on ${++index} of ${allChunks.length}`);
