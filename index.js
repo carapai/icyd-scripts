@@ -10,9 +10,9 @@ const readJsonFile = async () => {
             username: args.u,
             password: args.p,
         },
-        params: {
-            async: true,
-        },
+        // params: {
+        //     async: true,
+        // },
     });
     const rawData = fs.readFileSync(args.f);
     const { trackedEntityInstances } = JSON.parse(rawData);
@@ -20,7 +20,13 @@ const readJsonFile = async () => {
     let index = 0;
     for (const c of allChunks) {
         console.log(`Working on ${++index} of ${allChunks.length}`);
-        await api.post("trackedEntityInstances", { trackedEntityInstances: c });
+        const {
+            data: { response },
+        } = await api.post("trackedEntityInstances", {
+            trackedEntityInstances: c,
+        });
+
+        console.l(response);
     }
 };
 
