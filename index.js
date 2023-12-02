@@ -10,6 +10,9 @@ const readJsonFile = async () => {
             username: args.u,
             password: args.p,
         },
+        params: {
+            async: true,
+        },
     });
     const rawData = fs.readFileSync(args.f);
     const { trackedEntityInstances } = JSON.parse(rawData);
