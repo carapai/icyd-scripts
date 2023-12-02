@@ -1,5 +1,5 @@
 const fs = require("fs");
-const axios = require("axios/dist/node/axios.cjs");
+const axios = require("axios");
 const args = require("minimist")(process.argv.slice(2));
 const { chunk } = require("lodash");
 
