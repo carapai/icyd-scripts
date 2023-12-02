@@ -26,7 +26,7 @@ const readJsonFile = async () => {
             trackedEntityInstances: c,
         });
 
-        console.l(response);
+        console.log(response);
     }
 };
 
