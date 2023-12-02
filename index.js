@@ -30,4 +30,23 @@ const readJsonFile = async () => {
     }
 };
 
-readJsonFile();
+const readJsonFile2 = async () => {
+    const api = axios.create({
+        baseURL: `${args.l}/api/`,
+        auth: {
+            username: args.u,
+            password: args.p,
+        },
+        params: {
+            async: args.a,
+        },
+    });
+    const rawData = fs.readFileSync(args.f);
+    const data = JSON.parse(rawData);
+    const {
+        data: { response },
+    } = await api.post("dataValueSets", data);
+    console.log(response);
+};
+
+readJsonFile2();
