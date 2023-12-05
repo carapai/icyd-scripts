@@ -49,4 +49,4 @@ const readJsonFile2 = async () => {
     console.log(response);
 };
 
-readJsonFile2();
+readJsonFile();
